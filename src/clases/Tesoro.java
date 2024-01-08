@@ -17,17 +17,29 @@ public class Tesoro {
 	 * Atributo donde indica el tesoro en el eje Y
 	 */
 	static int yTesoro;
-
+	/**
+	 * Atributo que indica el jugador en el eje X
+	 */
 	int xJugador = 1;
 
+	/**
+	 * 
+	 * Atributo que indica el jugador en el ejeY
+	 */
 	int yJugador = 1;
 
+	/**
+	 * Funcion que genera un tesoro en el eje X e Y teniendo en cuenta el tamaño del tablero
+	 */
 	static void generaPosicionTesoro() {
 		Random rand = new Random();
 		xTesoro = rand.nextInt(1, TAM_TABLERO + 1);
 		yTesoro = rand.nextInt(1, TAM_TABLERO + 1);
 	}
 
+	/**
+	 * Funcion que imprime en consola el tablero y donde esta posicionado el jugador
+	 */
 	void pintaTablero() {
 		// Imprimimos la primera línea de números
 		for (int i = 1; i <= TAM_TABLERO; i++) {
@@ -54,7 +66,11 @@ public class Tesoro {
 			System.out.println();
 		}
 	}
-
+	/**
+	 * Funcion que permite al jugador moverse por el tablero tener que salir del tablero
+	 * @param movimiento Cadena que indica donde se moverá el jugador (Arriba,Abajo,Derecha,Izquierda)
+	 * @return Numero entero que indica si ha hecho un buen movimiento 
+	 */
 	int mueveJugador(String movimiento) {
 		int res = 0;
 		String movMinuscula = movimiento.toLowerCase();
@@ -95,7 +111,10 @@ public class Tesoro {
 		
 		return res;
 	}
-
+	/**
+	 * Funcion que indica si el jugador esta en la misma posicion que el tesoro
+	 * @return Devuelve booleano cuando el jugador esta o no en la misma posicion que el tesoro
+	 */
 	boolean buscaTesoro(){
 		boolean res = false;
 		if(xTesoro == xJugador && yTesoro == yJugador) {
